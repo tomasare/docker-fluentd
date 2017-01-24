@@ -46,7 +46,8 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   && cd fluent-plugin-remote-syslog \
   && gem build fluent-plugin-remote-syslog.gemspec \
   && td-agent-gem install fluent-plugin-remote-syslog-*.gem \
-  && rm -fr /fluent-plugin-remote-syslog \
+  && cd / \
+  && rm -fr fluent-plugin-remote-syslog \
 
   # https://github.com/sonots/fluent-plugin-copy_ex
   && td-agent-gem install --no-document fluent-plugin-copy_ex -v 0.0.2 \
