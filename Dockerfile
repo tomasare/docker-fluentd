@@ -23,9 +23,6 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # Needed to allow access to /var/log/docker/... files.
   && sed -i -e "s/USER=td-agent/USER=root/" -e "s/GROUP=td-agent/GROUP=root/" /etc/init.d/td-agent \
 
-  # https://github.com/fukuiretu/fluent-plugin-json-nest2flat
-  && td-agent-gem install --no-document fluent-plugin-json-nest2flat -v 0.0.5 \
-
   # https://github.com/tagomoris/fluent-plugin-parser
   && td-agent-gem install --no-document fluent-plugin-parser -v 0.6.1 \
 
@@ -66,6 +63,9 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
 
   # https://github.com/y-ken/fluent-plugin-rewrite-tag-filter
   && td-agent-gem install --no-document fluent-plugin-rewrite-tag-filter -v 1.5.5 \
+
+  # https://github.com/gmr/fluent-plugin-json-in-json
+  && td-agent-gem install fluent-plugin-json-in-json -v 0.1.4 \
 
   # https://github.com/uken/fluent-plugin-elasticsearch
   && td-agent-gem install --no-document fluent-plugin-elasticsearch -v 1.9.2 \
