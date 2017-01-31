@@ -70,6 +70,9 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # https://github.com/uken/fluent-plugin-elasticsearch
   && td-agent-gem install --no-document fluent-plugin-elasticsearch -v 1.9.2 \
 
+  # https://github.com/fabric8io/fluent-plugin-docker_metadata_filter
+  && td-agent-gem install --no-document fluent-plugin-docker_metadata_filter -v 0.1.3 \
+
   # clean deps
   && apt-get purge -y make g++ git-core \
 
