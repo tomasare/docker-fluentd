@@ -2,8 +2,7 @@ FROM oberthur/docker-ubuntu:16.04-20170303
 
 MAINTAINER Dawid Malinowski <d.malinowski@oberthur.com>
 
-ENV LD_PRELOAD=/opt/td-agent/embedded/lib/libjemalloc.so \
-  FLUENTD_VERSION=2.3.4
+ENV FLUENTD_VERSION=2.3.4
 
 RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # add treasure data repository to apt
@@ -11,6 +10,9 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
 
   # update your sources
   && apt-get update \
+
+  # install deps
+  && apt-get install -y make g++ git-core \
 
   # install the toolbelt
   && apt-get install -y td-agent=${FLUENTD_VERSION}* \
@@ -61,11 +63,16 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # https://github.com/fabric8io/fluent-plugin-docker_metadata_filter
   && td-agent-gem install --no-document fluent-plugin-docker_metadata_filter -v 0.1.3 \
 
+  # clean deps
+  && apt-get purge -y make g++ git-core \
+
   # clean up
   && apt-get clean autoclean \
   && apt-get autoremove --yes \
   && rm -rf /var/lib/{apt,dpkg,cache,log}/ \
   && rm -fr /tmp/* /var/tmp/*
+
+ENV LD_PRELOAD=/opt/td-agent/embedded/lib/libjemalloc.so
 
 # Run the Fluentd service.
 ENTRYPOINT ["td-agent"]
