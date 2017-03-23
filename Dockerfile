@@ -1,10 +1,9 @@
-FROM oberthur/docker-ubuntu:16.04
+FROM oberthur/docker-ubuntu:16.04-20170303
 
 MAINTAINER Dawid Malinowski <d.malinowski@oberthur.com>
 
-#ENV LD_PRELOAD /opt/td-agent/embedded/lib/libjemalloc.so
-
-ENV FLUENTD_VERSION=2.3.4
+ENV LD_PRELOAD=/opt/td-agent/embedded/lib/libjemalloc.so \
+  FLUENTD_VERSION=2.3.4
 
 RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # add treasure data repository to apt
@@ -12,9 +11,6 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
 
   # update your sources
   && apt-get update \
-
-  # install deps
-  && apt-get install -y make g++ git-core \
 
   # install the toolbelt
   && apt-get install -y td-agent=${FLUENTD_VERSION}* \
@@ -38,43 +34,32 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # https://github.com/dlackty/fluent-plugin-remote_syslog 
   && td-agent-gem install --no-document fluent-plugin-remote_syslog -v 0.3.2 \
 
-  # https://github.com/docebo/fluent-plugin-remote-syslog
-  && git clone https://github.com/docebo/fluent-plugin-remote-syslog \
-  && cd fluent-plugin-remote-syslog \
-  && gem build fluent-plugin-remote-syslog.gemspec \
-  && td-agent-gem install fluent-plugin-remote-syslog-*.gem \
-  && cd / \
-  && rm -fr fluent-plugin-remote-syslog \
-
   # https://github.com/sonots/fluent-plugin-copy_ex
-  && td-agent-gem install --no-document fluent-plugin-copy_ex -v 0.0.2 \
+  && td-agent-gem install --no-document fluent-plugin-copy_ex -v 0.0.3 \
 
   # https://github.com/sonots/fluent-plugin-record-reformer
-  && td-agent-gem install --no-document fluent-plugin-record-reformer -v 0.8.2 \
+  && td-agent-gem install --no-document fluent-plugin-record-reformer -v 0.9.0 \
 
   # https://github.com/repeatedly/fluent-plugin-record-modifier
   && td-agent-gem install --no-document fluent-plugin-record-modifier -v 0.5.0 \
 
   # https://github.com/fabric8io/fluent-plugin-kubernetes_metadata_filter
-  && td-agent-gem install --no-document fluent-plugin-kubernetes_metadata_filter -v 0.26.2 \
+  && td-agent-gem install --no-document fluent-plugin-kubernetes_metadata_filter -v 0.26.3 \
 
   # https://github.com/kazegusuri/fluent-plugin-stdout-pp
   && td-agent-gem install --no-document fluent-plugin-stdout-pp -v 0.1.0 \
 
   # https://github.com/y-ken/fluent-plugin-rewrite-tag-filter
-  && td-agent-gem install --no-document fluent-plugin-rewrite-tag-filter -v 1.5.5 \
+  && td-agent-gem install --no-document fluent-plugin-rewrite-tag-filter -v 1.5.6 \
 
   # https://github.com/gmr/fluent-plugin-json-in-json
   && td-agent-gem install fluent-plugin-json-in-json -v 0.1.4 \
 
   # https://github.com/uken/fluent-plugin-elasticsearch
-  && td-agent-gem install --no-document fluent-plugin-elasticsearch -v 1.9.2 \
+  && td-agent-gem install --no-document fluent-plugin-elasticsearch -v 1.9.3 \
 
   # https://github.com/fabric8io/fluent-plugin-docker_metadata_filter
   && td-agent-gem install --no-document fluent-plugin-docker_metadata_filter -v 0.1.3 \
-
-  # clean deps
-  && apt-get purge -y make g++ git-core \
 
   # clean up
   && apt-get clean autoclean \
