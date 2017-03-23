@@ -63,6 +63,9 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # https://github.com/fabric8io/fluent-plugin-docker_metadata_filter
   && td-agent-gem install --no-document fluent-plugin-docker_metadata_filter -v 0.1.3 \
 
+  # https://github.com/sonots/fluent-plugin-named_pipe
+  && td-agent-gem install --no-document fluent-plugin-named_pipe -v 0.1.2 \
+
   # clean deps
   && apt-get purge -y make g++ git-core \
 
