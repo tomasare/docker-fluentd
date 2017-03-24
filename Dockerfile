@@ -77,5 +77,8 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
 
 ENV LD_PRELOAD=/opt/td-agent/embedded/lib/libjemalloc.so
 
+# https://info.varnish-software.com/blog/understanding-varnish-cache-memory-usage
+RUN ln -s 'lg_dirty_mult:8,lg_chunk:18' /etc/malloc.conf
+
 # Run the Fluentd service.
 ENTRYPOINT ["td-agent"]
