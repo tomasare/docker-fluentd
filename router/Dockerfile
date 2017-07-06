@@ -42,6 +42,9 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # https://github.com/uken/fluent-plugin-elasticsearch
   && td-agent-gem install --no-document fluent-plugin-elasticsearch -v 1.9.3 \
 
+  # https://github.com/tagomoris/fluent-plugin-flowcounter
+  && td-agent-gem install --no-document fluent-plugin-flowcounter -v 0.4.2 \
+
   # clean deps
   && apt-get purge -y make g++ git-core \
 

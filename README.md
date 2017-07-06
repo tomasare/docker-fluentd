@@ -24,3 +24,4 @@ agent -> router -> backend
 |[fluent-plugin-json-in-json](https://github.com/gmr/fluent-plugin-json-in-json)                                    |**0.1.4**|-|-|+|
 |[fluent-plugin-elasticsearch](https://github.com/uken/fluent-plugin-elasticsearch)                                 |**1.9.3**|+|-|-|
 |[fluent-plugin-docker_metadata_filter](https://github.com/fabric8io/fluent-plugin-docker_metadata_filter)          |0.1.3|-|-|+|
+|[fluent-plugin-flowcounter](https://github.com/tagomoris/fluent-plugin-flowcounter)          |0.4.2|-|+|-|
