@@ -15,9 +15,9 @@ agent -> router -> backend
 |[fluent-plugin-formatter_sprintf](https://github.com/toyama0919/fluent-plugin-formatter_sprintf)                   |0.0.4|+|-|-|
 |[fluent-plugin-forest](https://github.com/tagomoris/fluent-plugin-forest)                                          |0.3.3|+|-|-|
 |[fluent-plugin-retag](https://github.com/algas/fluent-plugin-retag)                                                |0.0.1|+|-|-|
-|[fluent-plugin-remote_syslog](https://github.com/dlackty/fluent-plugin-remote_syslog)                              |**0.3.2**|+|-|-|
+|[fluent-plugin-remote_syslog](https://github.com/dlackty/fluent-plugin-remote_syslog)                              |0.3.3|+|-|-|
 |[fluent-plugin-copy_ex](https://github.com/sonots/fluent-plugin-copy_ex)                                           |0.0.3|-|+|-|
-|[fluent-plugin-record-modifier](https://github.com/repeatedly/fluent-plugin-record-modifier)                       |0.5.0|-|-|+|
+|[fluent-plugin-record-modifier](https://github.com/repeatedly/fluent-plugin-record-modifier)                       |0.6.0|-|-|+|
 |[fluent-plugin-kubernetes_metadata_filter](https://github.com/fabric8io/fluent-plugin-kubernetes_metadata_filter)  |0.27.0|-|-|+|
 |[fluent-plugin-stdout-pp](https://github.com/kazegusuri/fluent-plugin-stdout-pp)                                   |0.1.0|+|+|+|
 |[fluent-plugin-rewrite-tag-filter](https://github.com/y-ken/fluent-plugin-rewrite-tag-filter)                      |1.5.6|-|-|+|

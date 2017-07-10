@@ -31,7 +31,7 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   && td-agent-gem install --no-document fluent-plugin-retag -v 0.0.1 \
 
   # https://github.com/dlackty/fluent-plugin-remote_syslog
-  && td-agent-gem install --no-document fluent-plugin-remote_syslog -v 0.3.2 \
+  && td-agent-gem install --no-document fluent-plugin-remote_syslog -v 0.3.3 \
 
   # https://github.com/kazegusuri/fluent-plugin-stdout-pp
   && td-agent-gem install --no-document fluent-plugin-stdout-pp -v 0.1.0 \

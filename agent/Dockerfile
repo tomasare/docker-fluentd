@@ -22,7 +22,7 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   && sed -i -e "s/USER=td-agent/USER=root/" -e "s/GROUP=td-agent/GROUP=root/" /etc/init.d/td-agent \
 
   # https://github.com/repeatedly/fluent-plugin-record-modifier
-  && td-agent-gem install --no-document fluent-plugin-record-modifier -v 0.5.0 \
+  && td-agent-gem install --no-document fluent-plugin-record-modifier -v 0.6.0 \
 
   # https://github.com/fabric8io/fluent-plugin-kubernetes_metadata_filter
   && td-agent-gem install --no-document fluent-plugin-kubernetes_metadata_filter -v 0.27.0 \
