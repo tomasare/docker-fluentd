@@ -11,9 +11,6 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # update your sources
   && apt-get update \
 
-  # install deps
-  && apt-get install -y make g++ git-core \
-
   # install the toolbelt
   && apt-get install -y td-agent=${FLUENTD_VERSION}* \
 
@@ -44,9 +41,6 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
 
   # https://github.com/tagomoris/fluent-plugin-flowcounter
   && td-agent-gem install --no-document fluent-plugin-flowcounter -v 0.4.2 \
-
-  # clean deps
-  && apt-get purge -y make g++ git-core \
 
   # clean up
   && apt-get clean autoclean \

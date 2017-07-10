@@ -11,9 +11,6 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # update your sources
   && apt-get update \
 
-  # install deps
-  && apt-get install -y make g++ git-core \
-
   # install the toolbelt
   && apt-get install -y td-agent=${FLUENTD_VERSION}* \
 
@@ -41,9 +38,6 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
 
   # https://github.com/uken/fluent-plugin-elasticsearch
   && td-agent-gem install --no-document fluent-plugin-elasticsearch -v 1.9.3 \
-
-  # clean deps
-  && apt-get purge -y make g++ git-core \
 
   # clean up
   && apt-get clean autoclean \
