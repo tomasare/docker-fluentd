@@ -45,6 +45,9 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # https://github.com/tagomoris/fluent-plugin-flowcounter
   && td-agent-gem install --no-document fluent-plugin-prometheus -v 0.2.1 \
 
+  # https://github.com/brycied00d/fluent-plugin-splunk-http-eventcollector
+  && td-agent-gem install --no-document fluent-plugin-splunk-http-eventcollector -v 0.3.0 \
+
   # clean up
   && apt-get clean autoclean \
   && apt-get autoremove --yes \
