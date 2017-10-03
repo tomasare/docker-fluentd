@@ -2,7 +2,7 @@ FROM oberthur/docker-ubuntu:16.04-20170303
 
 MAINTAINER Dawid Malinowski <d.malinowski@oberthur.com>
 
-ENV FLUENTD_VERSION=2.3.5
+ENV FLUENTD_VERSION=2.3.6
 
 RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # add treasure data repository to apt
@@ -44,6 +44,9 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
 
   # https://github.com/tagomoris/fluent-plugin-flowcounter
   && td-agent-gem install --no-document fluent-plugin-prometheus -v 0.2.1 \
+
+  # https://github.com/brycied00d/fluent-plugin-splunk-http-eventcollector
+  && td-agent-gem install --no-document fluent-plugin-splunk-http-eventcollector -v 0.3.0 \
 
   # clean up
   && apt-get clean autoclean \

@@ -2,7 +2,7 @@ FROM oberthur/docker-ubuntu:16.04-20170303
 
 MAINTAINER Dawid Malinowski <d.malinowski@oberthur.com>
 
-ENV FLUENTD_VERSION=2.3.5
+ENV FLUENTD_VERSION=2.3.6
 
 RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # add treasure data repository to apt
@@ -35,9 +35,6 @@ RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
 
   # https://github.com/kazegusuri/fluent-plugin-stdout-pp
   && td-agent-gem install --no-document fluent-plugin-stdout-pp -v 0.1.0 \
-
-  # https://github.com/uken/fluent-plugin-elasticsearch
-  && td-agent-gem install --no-document fluent-plugin-elasticsearch -v 1.9.3 \
 
   # https://github.com/sonots/fluent-plugin-copy_ex
   && td-agent-gem install --no-document fluent-plugin-copy_ex -v 0.0.3 \
