@@ -2,7 +2,7 @@ FROM oberthur/docker-ubuntu:16.04-20170303
 
 MAINTAINER Dawid Malinowski <d.malinowski@oberthur.com>
 
-ENV FLUENTD_VERSION=2.3.5
+ENV FLUENTD_VERSION=2.3.6
 
 RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # add treasure data repository to apt
