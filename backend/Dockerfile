@@ -2,11 +2,11 @@ FROM oberthur/docker-ubuntu:16.04-20170303
 
 MAINTAINER Dawid Malinowski <d.malinowski@oberthur.com>
 
-ENV FLUENTD_VERSION=2.3.6
+ENV FLUENTD_VERSION=3.0.1
 
 RUN curl https://packages.treasuredata.com/GPG-KEY-td-agent | apt-key add - \
   # add treasure data repository to apt
-  && echo "deb http://packages.treasuredata.com/2/ubuntu/xenial/ xenial contrib" > /etc/apt/sources.list.d/treasure-data.list \
+  && echo "deb http://packages.treasuredata.com/3/ubuntu/xenial/ xenial contrib" > /etc/apt/sources.list.d/treasure-data.list \
 
   # update your sources
   && apt-get update \

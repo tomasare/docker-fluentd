@@ -1,7 +1,7 @@
 # docker-fluentd
 
 Fluentd types:
-- **agent** - runs on kubernetes nodes or nodes based on 2.0.6 ( docker-commpose ) and forwards all logs to routers
+- **agent** - runs on kubernetes nodes or nodes based on docker-commpose and forwards all logs to routers
 - **router** - forwards logs based on tag/destination to specific agents
 - **backend** - there are few types like: audit, elastic and file. They are final step to write logs to specific destinations
 
